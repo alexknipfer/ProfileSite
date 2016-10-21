@@ -4,12 +4,12 @@
  $from=$_POST["email"];
  $msg=$_POST["message"];
  $receiver="alexanderknipfer@gmail.com";
- $subject="Contact MyWALL";
+ $subject="Contact Alex";
 
 $message = "
 <html>
 <head>
-<title>MyWALL Contact</title>
+<title>Contact Alex</title>
 </head>
 <body>
 <table width='50%' border='0' align='center' cellpadding='0' cellspacing='0'>
@@ -43,6 +43,10 @@ $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 // More headers
 $headers .= 'From: <'.$from.'>' . "\r\n";
+$headers .= 'Reply-To: <' .$from.'>' . "\r\n";
+$headers .='X-Mailer: PHP/' . phpversion();
+$headers .= "MIME-Version: 1.0\n";
+$headers .= "Content-type: text/html; charset=iso-8859-1\n";
 
 
    if(mail($receiver,$subject,$message,$headers))
